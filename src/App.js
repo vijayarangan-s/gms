@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import Master from './components/Master';
+import Nav from './components/Nav';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Reports from './components/Reports';
+import Login from './components/Login';
 
 function App() {
+  const pathname = window.location.pathname;
+  console.log({pathname})
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        pathname !== "/" && <Master/>
+      }
+       {
+        pathname === "/" && <Login/>
+      }
+      
     </div>
   );
 }
